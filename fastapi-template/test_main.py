@@ -14,6 +14,20 @@ def client():
 
 
 def test_home_route(client):
+    """
+    Test the home route of the FastAPI application.
+
+    This function sends a GET request to the root URL ("/") using the provided test client
+    and asserts that the response status code is 200 and the response JSON matches the expected
+    output.
+
+    Args:
+        client (TestClient): The test client used to make requests to the FastAPI application.
+
+    Asserts:
+        response.status_code == 200: The response status code should be 200 (OK).
+        response.json() == {"message": "Hello"}: The response JSON should match the expected output.
+    """
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello"}
